@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Form Edit Teacher</title>
+
+    <!-- Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Slabo+24px" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet"> <!-- masih belum bisa -->
+		<link href="../css/style.css" rel="stylesheet"> <!-- masih belum bisa -->
+		<style media="screen">
+		.body{
+			font-family: 'Slabo 24px', serif;
+		}
+		.head{
+			text-align: center;
+			background-color: #f2f2f2;
+			padding: 3% 20%;
+		}
+		.head ul{
+			padding-left: 0
+		}
+		.head ul li{
+			display: inline-block;
+			ap
+		}
+		.head li a{
+			color: #39171c;
+			padding: 5px 10px;
+
+		}
+		.head li a:hover{
+			color: #39171c;
+			text-decoration: none;
+			border: 4px solid #ef0069;
+			padding: 5px 6px;
+		}
+		.form_data{
+			text-align: center;
+			margin-top: 20px;
+		}
+		.form_data h3{
+			padding-bottom: 20px;
+		}
+		.form_data input{
+			margin-bottom: 15px;
+		}
+		</style>
+</head>
+<body>
+		<section>
+			<%- include layout/menu %>
+
+			<div class="col-md-12 form_data">
+				<a href="/teachers" class="btn btn-danger">< Go Back</a>
+				<h3>Edit Teacher</h3>
+				<form class="" action="/teachers/edit/<%= edit_teacher.id%>" method="post">
+					<div>
+            <% if(errmsg){%>
+              <span> <%= errmsg%> </span>
+            <%}%>
+          </div>
+					<p>Edit First Name :</p>
+					<input type="text" name="first_name" value="<%= edit_teacher.first_name%>" >
+					<p>Edit Last Name :</p>
+					<input type="text" name="last_name" value="<%= edit_teacher.last_name%>">
+					<p>Edit Email :</p>
+					<input type="text" name="email" value="<%= edit_teacher.email%>">
+					<p>Subject:</p>
+          <select class="" name="SubjectId">
+						<% if (edit_teacher.SubjectId == null){%>
+						  <option value="">Unassigned</option>
+						  <% for (var i = 0; i < edit_subject.length; i++) {%>
+						    <% if (edit_subject[i].id == edit_teacher.SubjectId){%>
+						      <option value="<%= edit_subject[i].id%>">
+						        <%= edit_subject[i].subject_name%>
+						      </option>
+						    <%} else {%>
+						      <option value="<%= edit_subject[i].id%>">
+						        <%= edit_subject[i].subject_name%>
+						      </option>
+						    <%}%>
+						  <%}%>
+						<%} else {%>
+						  <% for (var i = 0; i < edit_subject.length; i++) {%>
+						    <% if (edit_subject[i].id == edit_teacher.SubjectId){%>
+						      <option value="<%= edit_subject[i].id%>" selected>
+						        <%= edit_subject[i].subject_name%>
+						      </option>
+						    <%} else {%>
+						      <option value="<%= edit_subject[i].id%>">
+						        <%= edit_subject[i].subject_name%>
+						      </option>
+						    <%}%>
+						  <%}%>
+						<%}%>
+          </select>
+					<br>
+					<br>
+					<button type="submit" class="btn btn-default" name="button">Submit</button>
+				</form>
+			</div>
+		</section>
+
+</body>
+</html>

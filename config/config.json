@@ -1,0 +1,10 @@
+{
+    "development": {
+      "username": "hacktiv8-8",
+      "password": "password",
+      "database": "sqlizedb",
+      "host": "localhost",
+      "dialect": "postgres",
+      "logging": false
+  }
+}

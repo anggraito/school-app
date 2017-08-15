@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LOGIN PAGE</title>
+  </head>
+  <body>
+    <center>
+      <form class="" action="/login" method="post">
+        <div>
+          <% if(errmsg){%>
+            <span> <%= errmsg%> </span>
+          <%}%>
+        </div>
+        <h2>LOGIN USER</h2>
+        <br>
+        <input type="text" name="username" placeholder="username">
+        <br>
+        <input type="password" name="password" placeholder="password">
+        <br>
+        <br>
+        <button type="submit" name="button">LOGIN</button>
+      </form>
+    </center>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "development": {
+      "username": "anggie",
+      "password": "bnm",
+      "database": "anggraito",
+      "host": "localhost",
+      "port": 5000,
+      "dialect": "postgres",
+      "logging": false
+  }
+}
